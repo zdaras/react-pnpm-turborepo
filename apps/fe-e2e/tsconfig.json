@@ -1,0 +1,15 @@
+{
+	"extends": "@packages/tsconfig/tsconfig.settings.json",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"#/*": ["src/*"]
+		},
+		"target": "ESNext",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"types": ["expect-playwright", "node"]
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules", "static", "coverage"]
+}

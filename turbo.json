@@ -1,0 +1,74 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"@packages/ui#build:package": {
+			"outputs": ["dist/**"],
+			"dependsOn": ["@packages/utils#build:package"]
+		},
+		"@packages/utils#build:package": {
+			"outputs": ["dist/**"]
+		},
+		"@packages/ui#start": {
+			"outputs": ["dist/**"]
+		},
+		"@packages/utils#start": {
+			"outputs": ["dist/**"]
+		},
+		"fe#build:package": {},
+		"@packages/global-types#build:package": {
+			"outputs": []
+		},
+		"@packages/tsconfig#build:package": {
+			"outputs": []
+		},
+		"fe#build": {
+			"outputs": ["dist/**"],
+			"dependsOn": ["^build:package"],
+			"dotEnv": [".env.production"],
+			"cache": false
+		},
+		"static-analysis:ci": {
+			"outputs": [],
+			"dependsOn": ["^build:package"],
+			"cache": false
+		},
+		"static-analysis:local": {
+			"outputs": [],
+			"cache": false
+		},
+		"storybook:dev": {
+			"cache": false
+		},
+		"storybook:build": {
+			"outputs": ["storybook-static/**"],
+			"dependsOn": ["build:package"],
+			"cache": false
+		},
+		"test:unit:ci": {
+			"outputs": [],
+			"dependsOn": ["^build:package"],
+			"cache": false
+		},
+		"start": {
+			"persistent": true,
+			"cache": false,
+			"dependsOn": ["^start"]
+		},
+		"preview": {
+			"persistent": true,
+			"cache": false
+		},
+		"e2e:ci": {
+			"outputs": []
+		},
+		"clean": {
+			"cache": false
+		},
+		"lint": {
+			"cache": false
+		},
+		"lint:fix": {
+			"cache": false
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "types": ["node", "vitest/globals", "vite/client", "vitest", "@packages/global-types/index.d.ts"],
+    "isolatedModules": true,
+		"strict": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"allowJs": false,
+		"checkJs": false,
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"noEmitHelpers": true,
+		"jsx": "react-jsx",
+		"lib": ["dom", "dom.iterable", "esnext", "es2017"],
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noEmit": true,
+		"noEmitOnError": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"pretty": true,
+		"removeComments": true,
+		"sourceMap": false,
+		"esModuleInterop": true
+  }
+}

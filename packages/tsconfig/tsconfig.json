@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.settings.json",
+  "compilerOptions": {
+    "outDir": "bin",
+    "types": ["node", "vitest/globals"]
+  },
+  "references": [
+    {
+      "path": "../global-types"
+    },
+    {
+			"path": "./tsconfig.node.json"
+		}
+  ]  
+}

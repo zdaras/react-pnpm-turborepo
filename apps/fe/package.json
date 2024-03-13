@@ -1,0 +1,33 @@
+{
+	"name": "fe",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx}": "pnpm run lint"
+	},
+	"scripts": {
+		"start": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test:unit": "vitest",
+		"test:unit:ui": "vitest --ui --open",
+		"test:unit:ci": "vitest related --run",
+		"test:unit:changed": "vitest --changed origin/master --run",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome check --apply ./src",
+		"lint:ci": "biome check --apply ./src --files-ignore-unknown=true --no-errors-on-unmatched",
+		"typecheck": "tsc",
+		"static-analysis:ci": "run-p typecheck lint:ci",
+		"static-analysis:local": "run-p typecheck",
+		"find-deadcode": "ts-prune --error",
+		"clean:dist": "rimraf dist",
+		"clean": "rimraf .turbo && rimraf node_modules"
+	},
+	"devDependencies": {
+		"@packages/global-types": "workspace:*",
+		"@packages/tsconfig": "workspace:*",
+		"@packages/ui": "workspace:*",
+		"@packages/utils": "workspace:*"
+	}
+}

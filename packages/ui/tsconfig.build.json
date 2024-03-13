@@ -1,0 +1,19 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmit": false,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "./dist",
+		"jsx": "react-jsx"
+	},
+	"exclude": [
+		"node_modules",
+		"dist",
+		"src/setup-tests.ts",
+		"src/test-utils.tsx",
+		"src/**/*.test.ts",
+		"src/**/*.test.tsx",
+		"src/**/*.stories.tsx"
+	]
+}

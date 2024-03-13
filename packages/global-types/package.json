@@ -1,0 +1,19 @@
+{
+	"name": "@packages/global-types",
+	"version": "0.1.0",
+	"private": true,
+	"license": "MIT",
+	"types": "index.d.ts",
+	"devDependencies": {
+		"@packages/tsconfig": "workspace:*"
+	},
+	"scripts": {
+		"lint": "biome lint ./index.d.ts",
+		"lint:fix": "biome check --apply ./index.d.ts",
+		"lint:ci": "biome check --apply ./index.d.ts --files-ignore-unknown=true --no-errors-on-unmatched",
+		"build:package": "echo 'No build step for package'",
+		"typecheck": "tsc",
+		"static-analysis:ci": "pnpm lint:ci",
+		"clean": "rimraf .turbo && rimraf node_modules"
+	}
+}

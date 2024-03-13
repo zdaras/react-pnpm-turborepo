@@ -1,0 +1,32 @@
+{
+	"name": "fe-e2e",
+	"private": true,
+	"description": "fe e2e tests",
+	"version": "0.1.0",
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx}": "pnpm run lint"
+	},
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"postinstall": "npx playwright install --with-deps",
+		"test:e2e": "npx playwright test",
+		"test:e2e:ui": "pnpm run test:e2e --ui",
+		"e2e:ci": "cross-env NODE_ENV=production pnpm run test:e2e --project=chromium",
+		"showreport": "playwright show-report static/reports",
+		"lint": "biome lint ./src",
+		"lint:fix": "biome check --apply ./src",
+		"lint:ci": "biome check --apply ./src --files-ignore-unknown=true --no-errors-on-unmatched",
+		"typecheck": "tsc",
+		"static-analysis:ci": "run-p typecheck lint:ci",
+		"static-analysis:local": "run-p typecheck lint",
+		"find-deadcode": "ts-prune --error",
+		"clean:static": "rimraf ./static/*",
+		"clean": "rimraf .turbo && rimraf node_modules && rimraf ./static/*"
+	},
+	"devDependencies": {
+		"@packages/tsconfig": "workspace:*",
+		"@playwright/test": "1.42.1",
+		"expect-playwright": "0.8.0",
+		"tslib": "2.6.2"
+	}
+}
